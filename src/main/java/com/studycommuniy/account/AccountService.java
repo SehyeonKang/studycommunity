@@ -88,6 +88,14 @@ public class AccountService implements UserDetailsService {
         account.setOccupation(profile.getOccupation());
         account.setLocation(profile.getLocation());
         account.setBio(profile.getBio());
+        account.setProfileImage(profile.getProfileImage());
+
+        // account 객체는 persistence 상태가 아닌 detached 상태이므로 persistence context 에서 dirty checking 이 되지않아 merge 해야함
+        accountRepository.save(account);
+    }
+
+    public void updatePassword(Account account, String newPassword) {
+        account.setPassword(passwordEncoder.encode(newPassword));
         accountRepository.save(account);
     }
 }
