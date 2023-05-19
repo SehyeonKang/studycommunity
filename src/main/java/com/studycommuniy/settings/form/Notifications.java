@@ -1,4 +1,4 @@
-package com.studycommuniy.settings;
+package com.studycommuniy.settings.form;
 
 import com.studycommuniy.domain.Account;
 import lombok.Data;
