@@ -28,7 +28,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
-	implementation 'com.h2database:h2:1.4.200'
+	implementation 'com.h2database:h2'
 	implementation 'org.modelmapper:modelmapper:2.3.6'
     testImplementation 'org.projectlombok:lombok:1.18.22'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
