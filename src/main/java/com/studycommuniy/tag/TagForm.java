@@ -1,4 +1,4 @@
-package com.studycommuniy.settings.form;
+package com.studycommuniy.tag;
 
 import lombok.Data;
 

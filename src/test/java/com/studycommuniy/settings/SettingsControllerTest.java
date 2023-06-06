@@ -1,15 +1,15 @@
 package com.studycommuniy.settings;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.studycommuniy.Tag.TagRepository;
+import com.studycommuniy.tag.TagRepository;
 import com.studycommuniy.WithAccount;
 import com.studycommuniy.account.AccountRepository;
 import com.studycommuniy.account.AccountService;
 import com.studycommuniy.domain.Account;
 import com.studycommuniy.domain.Tag;
 import com.studycommuniy.domain.Zone;
-import com.studycommuniy.settings.form.TagForm;
-import com.studycommuniy.settings.form.ZoneForm;
+import com.studycommuniy.tag.TagForm;
+import com.studycommuniy.zone.ZoneForm;
 import com.studycommuniy.zone.ZoneRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

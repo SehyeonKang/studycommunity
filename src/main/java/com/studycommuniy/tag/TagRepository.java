@@ -1,4 +1,4 @@
-package com.studycommuniy.Tag;
+package com.studycommuniy.tag;
 
 import com.studycommuniy.domain.Tag;
 import org.springframework.data.jpa.repository.JpaRepository;

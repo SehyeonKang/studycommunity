@@ -2,7 +2,8 @@ package com.studycommuniy.settings;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.studycommuniy.Tag.TagRepository;
+import com.studycommuniy.tag.TagForm;
+import com.studycommuniy.tag.TagRepository;
 import com.studycommuniy.account.AccountService;
 import com.studycommuniy.account.CurrentAccount;
 import com.studycommuniy.domain.Account;
@@ -11,6 +12,8 @@ import com.studycommuniy.domain.Zone;
 import com.studycommuniy.settings.form.*;
 import com.studycommuniy.settings.validator.NicknameValidator;
 import com.studycommuniy.settings.validator.PasswordFormValidator;
+import com.studycommuniy.tag.TagService;
+import com.studycommuniy.zone.ZoneForm;
 import com.studycommuniy.zone.ZoneRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -44,6 +47,7 @@ public class SettingsController {
     private final AccountService accountService;
     private final ModelMapper modelMapper;
     private final NicknameValidator nicknameValidator;
+    private final TagService tagService;
     private final TagRepository tagRepository;
     private final ZoneRepository zoneRepository;
     private final ObjectMapper objectMapper;
@@ -135,13 +139,7 @@ public class SettingsController {
     @PostMapping(TAGS + "/add")
     @ResponseBody
     public ResponseEntity addTag(@CurrentAccount Account account, @RequestBody TagForm tagForm) {
-        String title = tagForm.getTagTitle();
-
-        Tag tag = tagRepository.findByTitle(title);
-        if (tag == null) {
-            tag = tagRepository.save(Tag.builder().title(title).build());
-        }
-
+        Tag tag = tagService.findOrCreateNew(tagForm.getTagTitle());
         accountService.addTag(account, tag);
         return ResponseEntity.ok().build();
     }
