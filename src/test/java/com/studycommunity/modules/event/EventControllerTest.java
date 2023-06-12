@@ -1,5 +1,6 @@
 package com.studycommunity.modules.event;
 
+import com.studycommunity.infra.AbstractContainerBaseTest;
 import com.studycommunity.infra.MockMvcTest;
 import com.studycommunity.modules.account.AccountFactory;
 import com.studycommunity.modules.account.AccountRepository;
@@ -22,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @MockMvcTest
-public class EventControllerTest {
+public class EventControllerTest extends AbstractContainerBaseTest {
 
     @Autowired
     MockMvc mockMvc;

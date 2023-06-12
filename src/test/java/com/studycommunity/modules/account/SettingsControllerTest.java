@@ -1,6 +1,7 @@
 package com.studycommunity.modules.account;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.studycommunity.infra.AbstractContainerBaseTest;
 import com.studycommunity.infra.MockMvcTest;
 import com.studycommunity.modules.tag.TagRepository;
 import com.studycommunity.modules.tag.Tag;
@@ -28,7 +29,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @MockMvcTest
-class SettingsControllerTest {
+class SettingsControllerTest extends AbstractContainerBaseTest {
 
     @Autowired
     MockMvc mockMvc;
