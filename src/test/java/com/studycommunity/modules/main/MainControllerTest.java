@@ -1,5 +1,6 @@
 package com.studycommunity.modules.main;
 
+import com.studycommunity.infra.MockMvcTest;
 import com.studycommunity.modules.account.AccountRepository;
 import com.studycommunity.modules.account.AccountService;
 import com.studycommunity.modules.account.form.SignUpForm;
@@ -19,8 +20,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
-@AutoConfigureMockMvc
+@MockMvcTest
 class MainControllerTest {
 
     @Autowired
