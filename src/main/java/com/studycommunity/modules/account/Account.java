@@ -47,20 +47,26 @@ public class Account {
 
     private boolean studyCreatedByEmail;
 
+    @Builder.Default
     private boolean studyCreatedByWeb = true;
 
     private boolean studyEnrollmentResultByEmail;
 
+    @Builder.Default
     private boolean studyEnrollmentResultByWeb = true;
 
     private boolean studyUpdatedByEmail;
 
+    @Builder.Default
     private boolean studyUpdatedByWeb = true;
 
+
     @ManyToMany
+    @Builder.Default
     private Set<Tag> tags = new HashSet<>();
 
     @ManyToMany
+    @Builder.Default
     private Set<Zone> zones = new HashSet<>();
     public void generateEmailCheckToken() {
         this.emailCheckToken = UUID.randomUUID().toString();

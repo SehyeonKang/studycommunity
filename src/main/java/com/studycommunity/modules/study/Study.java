@@ -28,6 +28,9 @@ import java.util.Set;
         @NamedAttributeNode("managers")})
 @NamedEntityGraph(name = "Study.withMembers", attributeNodes = {
         @NamedAttributeNode("members")})
+@NamedEntityGraph(name = "Study.withTagsAndZones", attributeNodes = {
+        @NamedAttributeNode("tags"),
+        @NamedAttributeNode("zones")})
 @Entity
 @Getter @Setter @EqualsAndHashCode(of = "id")
 @Builder @AllArgsConstructor @NoArgsConstructor
@@ -37,9 +40,11 @@ public class Study {
     private Long id;
 
     @ManyToMany
+    @Builder.Default
     private Set<Account> managers = new HashSet<>();
 
     @ManyToMany
+    @Builder.Default
     private Set<Account> members = new HashSet<>();
 
     @Column(unique = true)
@@ -56,9 +61,11 @@ public class Study {
     private String image;
 
     @ManyToMany
+    @Builder.Default
     private Set<Tag> tags = new HashSet<>();
 
     @ManyToMany
+    @Builder.Default
     private Set<Zone> zones = new HashSet<>();
 
     private LocalDateTime publishedDateTime;
