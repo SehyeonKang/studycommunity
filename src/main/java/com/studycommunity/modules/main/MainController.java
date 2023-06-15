@@ -5,6 +5,10 @@ import com.studycommunity.modules.account.Account;
 import com.studycommunity.modules.study.Study;
 import com.studycommunity.modules.study.StudyRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,11 +36,13 @@ public class MainController {
     }
 
     @GetMapping("/search/study")
-    public String searchStudy(String keyword, Model model) {
-        List<Study> studyList = studyRepository.findByKeyword(keyword);
-        model.addAttribute(studyList);
+    public String searchStudy(String keyword, Model model, @CurrentAccount Account account,
+                              @PageableDefault(size = 9, sort = "publishedDateTime", direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<Study> studyPage = studyRepository.findByKeyword(keyword, pageable);
+        model.addAttribute("studyPage", studyPage);
         model.addAttribute("keyword", keyword);
-        // TODO Account attribute 추가해서 프로필 이미지 받기
+        model.addAttribute(account);
         return "search";
     }
+
 }

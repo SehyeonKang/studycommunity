@@ -13,6 +13,8 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
+
 import static com.studycommunity.modules.study.form.StudyForm.VALID_PATH_PATTERN;
 
 @Service
@@ -169,4 +171,5 @@ public class StudyService {
         checkIfExistingStudy(path, study);
         return study;
     }
+
 }
