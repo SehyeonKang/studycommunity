@@ -42,6 +42,9 @@ public class MainController {
         model.addAttribute("studyPage", studyPage);
         model.addAttribute("keyword", keyword);
         model.addAttribute(account);
+        model.addAttribute("sortProperty",
+                pageable.getSort().toString().contains("publishedDateTime") ? "publishedDateTime" : "memberCount");
+
         return "search";
     }
 
